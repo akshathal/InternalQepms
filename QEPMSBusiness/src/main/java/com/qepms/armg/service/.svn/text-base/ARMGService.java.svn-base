@@ -1,0 +1,19 @@
+package com.qepms.armg.service;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.qepms.infra.dto.armg.EmployeeMasterDTO;
+import com.qepms.infra.dto.armg.ResumeDTO;
+import com.qepms.infra.dto.armg.UploadDTO;
+
+public interface ARMGService {
+
+	public List<ResumeDTO> getResumeList();
+	public String uploadResume(String file, EmployeeMasterDTO employeeMasterDTO);
+	
+
+}

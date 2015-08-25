@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 13, 2014 3:13:20 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.qepms.data.employee.Resume" table="resume" catalog="qepms">
+        <id name="resumeid" type="java.lang.Integer">
+            <column name="Resumeid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employeeMaster" class="com.qepms.data.employee.EmployeeMaster" fetch="select">
+            <column name="EmployeeId" />
+        </many-to-one>
+        <property name="totalExperience" type="string">
+            <column name="TotalExperience">
+                <comment>year&lt;50</comment>
+            </column>
+        </property>
+        <property name="relevantExperience" type="string">
+            <column name="RelevantExperience">
+                <comment>year&lt;50</comment>
+            </column>
+        </property>
+        <property name="professionalSummary" type="string">
+            <column name="ProfessionalSummary" />
+        </property>
+        <property name="comments" type="string">
+            <column name="Comments" length="100" />
+        </property>
+        <property name="employeeSumbissionStatus" type="string">
+            <column name="EmployeeSumbissionStatus" length="10" />
+        </property>
+        <property name="managerApprovalStatus" type="string">
+            <column name="ManagerApprovalStatus" length="8" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="19" not-null="true" />
+        </property>
+        <property name="updatedDate" type="timestamp">
+            <column name="UpdatedDate" length="19" not-null="true" />
+        </property>
+        <set name="projects" table="project" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="ResumeId" />
+            </key>
+            <one-to-many class="com.qepms.data.employee.Project" />
+        </set>
+        <set name="educations" table="education" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="ResumeId" />
+            </key>
+            <one-to-many class="com.qepms.data.employee.Education" />
+        </set>
+        <set name="skills" table="skill" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="ResumeId" />
+            </key>
+            <one-to-many class="com.qepms.data.employee.Skill" />
+        </set>
+    </class>
+</hibernate-mapping>

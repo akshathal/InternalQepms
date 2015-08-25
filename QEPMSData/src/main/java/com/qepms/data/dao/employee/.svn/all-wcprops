@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/QEPMS/!svn/ver/36/trunk/QEPMS/qepms/QEPMSData/src/main/java/com/qepms/data/dao/employee
+END
+EducationDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/QEPMS/!svn/ver/36/trunk/QEPMS/qepms/QEPMSData/src/main/java/com/qepms/data/dao/employee/EducationDAO.java
+END
+EmployeeMasterDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/QEPMS/!svn/ver/30/trunk/QEPMS/qepms/QEPMSData/src/main/java/com/qepms/data/dao/employee/EmployeeMasterDAO.java
+END
+SkillDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/QEPMS/!svn/ver/36/trunk/QEPMS/qepms/QEPMSData/src/main/java/com/qepms/data/dao/employee/SkillDAO.java
+END
+ResumeDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/QEPMS/!svn/ver/60/trunk/QEPMS/qepms/QEPMSData/src/main/java/com/qepms/data/dao/employee/ResumeDAO.java
+END
+ProjectDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/QEPMS/!svn/ver/36/trunk/QEPMS/qepms/QEPMSData/src/main/java/com/qepms/data/dao/employee/ProjectDAO.java
+END

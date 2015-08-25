@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/QEPMS/!svn/ver/34/trunk/QEPMS/qepms/QEPMSWebServices/WebContent/WEB-INF
+END
+qepmsWS-servlet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/QEPMS/!svn/ver/63/trunk/QEPMS/qepms/QEPMSWebServices/WebContent/WEB-INF/qepmsWS-servlet.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/QEPMS/!svn/ver/34/trunk/QEPMS/qepms/QEPMSWebServices/WebContent/WEB-INF/web.xml
+END

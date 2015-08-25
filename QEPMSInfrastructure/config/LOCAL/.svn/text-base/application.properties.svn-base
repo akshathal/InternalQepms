@@ -1,0 +1,9 @@
+jdbc.datasource.class=com.mchange.v2.c3p0.ComboPooledDataSource
+jdbc.datasource.driverClass=com.mysql.jdbc.Driver
+jdbc.datasource.jdbcUrl=jdbc\:mysql\://localhost/qepms
+jdbc.datasource.user=efms
+jdbc.datasource.password=eFms@321
+
+efmsApp.baseURL=http://localhost:8080/efms/app
+
+efmsWS.baseURL=http://localhost:8080/efmsws/service

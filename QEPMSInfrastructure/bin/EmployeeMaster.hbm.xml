@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 17, 2014 1:40:26 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="EmployeeMaster" table="employee_master" >
+        <id name="empId" type="java.lang.Integer">
+            <column name="EmpId" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="Name" length="50" />
+        </property>
+        <property name="title" type="string">
+            <column name="Title" length="3">
+                <comment>Mr / Ms / Dr</comment>
+            </column>
+        </property>
+        <property name="currentProject" type="string">
+            <column name="CurrentProject" length="50" />
+        </property>
+        <property name="reportingManager" type="string">
+            <column name="ReportingManager" length="50" />
+        </property>
+        <property name="employeeMail" type="string">
+            <column name="EmployeeMail" length="20" />
+        </property>
+        <property name="managerMail" type="string">
+            <column name="ManagerMail" length="20" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="19" not-null="true" />
+        </property>
+        <property name="updatedDate" type="timestamp">
+            <column name="UpdatedDate" length="19" not-null="true" />
+        </property>
+        <set name="resumes" table="resume" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EmployeeId" />
+            </key>
+            <one-to-many class="Resume" />
+        </set>
+    </class>
+</hibernate-mapping>

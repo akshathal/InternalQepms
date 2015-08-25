@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/QEPMS/!svn/ver/36/trunk/QEPMS/qepms/QEPMSData/src/main/resources
+END
+qepmsDataContext-dao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/QEPMS/!svn/ver/30/trunk/QEPMS/qepms/QEPMSData/src/main/resources/qepmsDataContext-dao.xml
+END
+hibernate.cfg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/QEPMS/!svn/ver/30/trunk/QEPMS/qepms/QEPMSData/src/main/resources/hibernate.cfg.xml
+END

@@ -1,0 +1,16 @@
+Languages	
+Web Technologies 	   
+Markup Languages	   
+Scripting languages	   
+XML Technologies		   
+RDBMS	 	   
+Packages		   
+Operating Systems		   
+IDE		   
+Database Technologies		   
+Web Servers		   
+Versioning Tools		   
+Advanced Concepts		   
+Reporting Tools	   
+Open Sources	 	   
+Third Party S/W 	 

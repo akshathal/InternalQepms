@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<headers>
+<Title>Title</Title>
+<FullName>Full Name</FullName>
+<TotalExperience>Total Experience</TotalExperience>
+<RelevantExperience>Relevant Experience</RelevantExperience>
+<PrimarySkills>Primary Skills</PrimarySkills>
+<SecondarySkills>Secondary Skills</SecondarySkills>
+<ProfessionalSummary>Professional Summary</ProfessionalSummary>
+<ClientName>Client Name</ClientName>
+<Duration>Duration</Duration>
+<ProjectName>Project Name</ProjectName>
+<Role>Role</Role>
+<ProjectBrief>Project Brief</ProjectBrief>
+<Responsibilities>Responsibilities</Responsibilities>
+<Environment>Environment</Environment>
+<TechnicalSkills>Technical Skills</TechnicalSkills>
+</headers>

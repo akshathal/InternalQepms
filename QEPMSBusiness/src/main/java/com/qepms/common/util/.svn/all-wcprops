@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/QEPMS/!svn/ver/28/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/common/util
+END
+EmployeeSubmissionStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/QEPMS/!svn/ver/28/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/common/util/EmployeeSubmissionStatus.java
+END
+SkillType.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/QEPMS/!svn/ver/28/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/common/util/SkillType.java
+END
+CustomDate.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/QEPMS/!svn/ver/59/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/common/util/CustomDate.java
+END
+CopyUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/QEPMS/!svn/ver/59/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/common/util/CopyUtil.java
+END
+Format.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/QEPMS/!svn/ver/59/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/common/util/Format.java
+END
+ManagerSubmissionStatus.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/QEPMS/!svn/ver/28/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/common/util/ManagerSubmissionStatus.java
+END

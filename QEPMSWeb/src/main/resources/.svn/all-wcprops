@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/QEPMS/!svn/ver/26/trunk/QEPMS/qepms/QEPMSWeb/src/main/resources
+END
+qepms-context.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/QEPMS/!svn/ver/26/trunk/QEPMS/qepms/QEPMSWeb/src/main/resources/qepms-context.xml
+END
+qepms-securityContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/QEPMS/!svn/ver/26/trunk/QEPMS/qepms/QEPMSWeb/src/main/resources/qepms-securityContext.xml
+END

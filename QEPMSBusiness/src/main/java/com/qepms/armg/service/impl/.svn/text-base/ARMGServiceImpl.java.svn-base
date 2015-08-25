@@ -1,0 +1,478 @@
+package com.qepms.armg.service.impl;
+
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.jsoup.Jsoup;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+import com.aspose.words.Document;
+import com.qepms.armg.service.ARMGService;
+import com.qepms.common.util.CopyUtil;
+import com.qepms.common.util.CustomDate;
+import com.qepms.common.util.EmployeeSubmissionStatus;
+import com.qepms.common.util.SkillType;
+import com.qepms.data.dao.employee.EmployeeMasterDAO;
+import com.qepms.data.dao.employee.ResumeDAO;
+import com.qepms.data.employee.Resume;
+import com.qepms.data.employee.Skill;
+import com.qepms.infra.constants.CommonConstants;
+import com.qepms.infra.dto.armg.EducationDTO;
+import com.qepms.infra.dto.armg.EmployeeMasterDTO;
+import com.qepms.infra.dto.armg.ProjectDTO;
+import com.qepms.infra.dto.armg.ResumeDTO;
+import com.qepms.infra.dto.armg.SkillDTO;
+
+
+
+@Transactional
+public class ARMGServiceImpl implements ARMGService {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ARMGServiceImpl.class);
+	
+	@Autowired
+	private ResumeDAO resumeDAO;
+	
+	@Autowired
+	private EmployeeMasterDAO employeeMasterDAO;
+
+	@Override
+	public List<ResumeDTO> getResumeList() {
+		
+		List<ResumeDTO> resumeDTOList=new ArrayList<ResumeDTO>();
+		ResumeDTO resumeDTO=null;
+		EmployeeMasterDTO employeeMasterDTO=null;
+		
+		List<Resume> resumeList=resumeDAO.getResumeList();
+		Iterator resumeitr=resumeList.iterator();
+		while(resumeitr.hasNext())
+		{
+			Resume resume=(Resume)resumeitr.next();
+			resumeDTO=new ResumeDTO();
+			
+			/*
+			 * setting employee details
+			 */
+			employeeMasterDTO=new EmployeeMasterDTO();
+			employeeMasterDTO.setName(resume.getEmployeeMaster().getName());
+			employeeMasterDTO.setEmpId(resume.getEmployeeMaster().getEmpId());
+			resumeDTO.setEmployeeMaster(employeeMasterDTO);
+			
+			List<SkillDTO> skillDTOList =new ArrayList<SkillDTO>();
+			SkillDTO sillDTO=null;
+			Set<Skill> skillList = resume.getSkills();
+			Iterator skillItr=skillList.iterator();
+			while(skillItr.hasNext())
+			{
+				Skill skill=(Skill)skillItr.next();
+				if(skill.getSkillCatagory().equals(SkillType.PRIMARY.name())||skill.getSkillCatagory().equals(SkillType.SECONDARY.name()))
+				{
+					sillDTO = new SkillDTO();
+					sillDTO.setSkillType(skill.getSkillType());
+					sillDTO.setSkillCatagory(skill.getSkillCatagory());
+					sillDTO.setSkill(skill.getSkill());
+					skillDTOList.add(sillDTO);
+				}
+			}
+			resumeDTO.setSkills(skillDTOList);
+			
+			resumeDTOList.add(resumeDTO);
+			 
+		}
+		
+		return resumeDTOList;
+	}
+
+	@Override
+	public String uploadResume(String filePath,EmployeeMasterDTO employeeMasterDTO) {
+		// TODO Auto-generated method stub
+		
+		
+		//creating persistence object
+		Resume resumePOJO = new Resume();
+		resumePOJO.setCreatedDate(CustomDate.getCustomDate());
+		
+		//upload the file 
+		//String filePath=uploadToServerFolder(file);
+		
+		//convert file to html
+		if(!filePath.isEmpty())
+		{
+			convertDocxToHTML(filePath);
+		}
+		
+		//parse html
+		ResumeDTO resumeDTO = readHTMLAndParseData(employeeMasterDTO);
+		if(resumeDTO==null)
+		{
+			return CommonConstants.UPLOAD_FAILURE_STATUS + "\t" +"Invalid file";
+		}
+		
+		//create the persistence object 
+		Resume resume=CopyUtil.copyDTOtoPOJO(resumeDTO,resumePOJO);
+		
+		//persist object
+		try
+		{
+			employeeMasterDAO.attachDirty(resume.getEmployeeMaster());
+			return CommonConstants.UPLOAD_SUCCESS_STATUS;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return CommonConstants.UPLOAD_FAILURE_STATUS;
+			
+		}
+		
+	}
+
+	
+
+    /*
+     * sub methods used for uploading resume	
+     */
+   // upload the docx file from UI to server folder
+	/*private String uploadToServerFolder(MultipartFile file) {
+	
+		 if (!file.isEmpty()) {
+	            try {
+	                byte[] bytes = file.getBytes();
+	                System.out.println("fileNmae="+file.getOriginalFilename());
+	                // Creating the directory to store file
+	               // String rootPath = System.getProperty("catalina.home");
+	                String rootPath = CommonConstants.UPLOAD_DIRECTORY;
+	                File dir = new File(rootPath);
+	                if (!dir.exists())
+	                    dir.mkdirs();
+	 
+	                // Create the file on server
+	                File serverFile = new File(dir.getAbsolutePath()
+	                        + File.separator + file.getOriginalFilename());
+	                BufferedOutputStream stream = new BufferedOutputStream(
+	                        new FileOutputStream(serverFile));
+	                stream.write(bytes);
+	                stream.close();
+	 
+	                LOG.info("Server File Location="
+	                        + serverFile.getAbsolutePath());
+	 
+	                return serverFile.getAbsolutePath();
+	            } catch (Exception e) {
+	                return null;
+	            }
+	        } else {
+	            return null;
+	        }
+		
+
+		
+	}*/
+	
+	//convert the docx file uploaded to html
+	private void convertDocxToHTML(String filePath) {
+			// TODO Auto-generated method stub
+			try {
+				Document doc = new Document(filePath);
+				doc.save(CommonConstants.UPLOAD_DIRECTORY+"\\Generatedresume.html");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+	
+	//read the converted html and parse data
+	
+	private ResumeDTO readHTMLAndParseData(EmployeeMasterDTO employeeMasterDTO) {
+			
+		    
+			//getting header from header xml
+			Map<String,String> headerMap=obtainHeaderFromXML();
+			String htmlToParse=obtainHtmlFromSource();
+			ResumeDTO resumeDTO=parseResumeDTOFromHTMLString(htmlToParse,headerMap,employeeMasterDTO);
+			return resumeDTO;
+		}
+		
+	
+
+		/*
+	     * end sub methods used for uploading resume	
+	     */
+	
+	private Map<String, String> obtainHeaderFromXML() {
+		// TODO Auto-generated method stub
+	   Map<String,String> headerList= new HashMap<String,String>();
+	   //Get the DOM Builder Factory
+	   DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	   //Get the DOM Builder
+	   try {
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			//Load and Parse the XML document
+		    //document contains the complete XML as a Tree.
+			org.w3c.dom.Document document = builder.parse(new File(CommonConstants.UPLOAD_DIRECTORY+"//Headers.xml"));
+		    //Iterating through the nodes and extracting the data.
+		    NodeList nodeList = document.getDocumentElement().getChildNodes();
+		    for (int i = 0; i < nodeList.getLength(); i++) {
+		        //We have encountered an <header> tag.
+		        Node node = nodeList.item(i);
+		        if (node instanceof org.w3c.dom.Element) {
+		        
+		        	headerList.put(node.getTextContent(), node.getNodeName());
+		        }
+		    }
+		 
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return headerList;
+	}
+	
+	private String obtainHtmlFromSource() {
+		// TODO Auto-generated method stub
+	     BufferedReader br = null;
+	     String htmlToParse=null;
+	     try {
+	            String sCurrentLine;
+	            br = new BufferedReader( new FileReader(CommonConstants.UPLOAD_DIRECTORY+"\\Generatedresume.html"));
+	            while ((sCurrentLine = br.readLine()) != null) {
+	               htmlToParse = htmlToParse + sCurrentLine;
+	            }
+   	        } catch (IOException e) 
+   	        {
+	            e.printStackTrace();
+	        }finally {
+	            try {
+	                if (br!= null)
+	                    br.close();
+	            } catch (IOException ex) {
+	                ex.printStackTrace();
+	            }
+	        }
+	    
+		return htmlToParse;
+	}
+
+
+	
+private ResumeDTO parseResumeDTOFromHTMLString(String htmlToParse,Map<String, String> headerMap,EmployeeMasterDTO employeeMasterDTO) 
+   {
+		// TODO Auto-generated method stub
+	    org.jsoup.nodes.Document doc = Jsoup.parse(htmlToParse);
+	    org.jsoup.select.Elements elements = doc.body().select("*");
+	    
+	    ResumeDTO resumeDTO= new ResumeDTO();
+	   // EmployeeMasterDTO employeeMasterDTO=new EmployeeMasterDTO();
+	    List<SkillDTO> skillDTOList=new ArrayList<SkillDTO>();
+	    List<EducationDTO> educationDTOList= new ArrayList<EducationDTO>();
+	    List<ProjectDTO> projectDTOList = new ArrayList<ProjectDTO>();
+	    DecimalFormat dec = new DecimalFormat();
+		dec.setParseBigDecimal(true);
+		SkillDTO skillDTO= null;
+		EducationDTO educationDTO = new EducationDTO();
+		ProjectDTO projectDTO = null;
+		
+	    
+	    
+	    List<org.jsoup.nodes.Element> parts = new ArrayList<org.jsoup.nodes.Element>();
+	    for (org.jsoup.nodes.Element e : elements)
+		{
+            parts.add(e);
+		}
+	    for(int i=0;i<parts.size();i++)
+		{
+        	if(parts.get(i).tagName().equalsIgnoreCase("p"))
+        	{
+        	
+        		for (Map.Entry<String, String> entry : headerMap.entrySet())
+        		{
+        			if(parts.get(i).text().contains(entry.getKey())) 
+	        		{
+		    			switch(entry.getValue())
+		    			{
+		    			
+		    			case "Title":
+		    				System.out.println(parts.get(i).text());
+		    				employeeMasterDTO.setTitle(parts.get(i).text().split(":")[1]);
+		    				System.out.println(parts.get(i).text().split(":")[1]);
+		    				break;
+		    			case "FullName":
+		    				//System.out.println(parts.get(i).text());
+		    				employeeMasterDTO.setName(parts.get(i).text().split(":")[1]);
+		    				break;
+		    			case "TotalExperience":
+		    				//System.out.println(parts.get(i).text());
+		    				resumeDTO.setTotalExperience(parts.get(i).text().split(":")[1]);
+							break;
+		    			case "RelevantExperience":
+		    				System.out.println(parts.get(i).text());
+		    				resumeDTO.setRelevantExperience(parts.get(i).text().split(":")[1]);
+		    				
+							break;
+		    			case "PrimarySkills":
+		    				
+		    				// System.out.println(parts.get(i).text());
+		    				 skillDTO= new SkillDTO();
+		    				 skillDTO.setSkillCatagory(SkillType.PRIMARY.name());
+		    				 skillDTO.setCreatedDate(CustomDate.getCustomDate());
+		    				 skillDTO.setSkill(parts.get(i).text().split(":")[1]);
+		    				 skillDTO.setUpdatedDate(CustomDate.getCustomDate());
+		    				 skillDTOList.add(skillDTO);
+		    			   	 break;
+		    			case "SecondarySkills":
+		    				 //System.out.println(parts.get(i).text());
+		    			   	 skillDTO= new SkillDTO();
+		    				 skillDTO.setSkillCatagory(SkillType.SECONDARY.name());
+		    				 skillDTO.setCreatedDate(CustomDate.getCustomDate());
+		    				 skillDTO.setSkill(parts.get(i).text().split(":")[1]);
+		    				 skillDTO.setUpdatedDate(CustomDate.getCustomDate());
+		    				 skillDTOList.add(skillDTO);
+		    				break;
+		    			case "ProfessionalSummary":
+		    				System.out.println("hello");
+		    				System.out.println(parts.get(i+2).text());
+		    				resumeDTO.setProfessionalSummary(parts.get(i+2).text());
+		    				break;
+		    			case "ClientName":
+		    				  projectDTO = new ProjectDTO();
+		    				  projectDTO.setClientName(parts.get(i).text().split(":")[1]);
+		    				 // System.out.println("ClientName="+parts.get(i).text());
+		    				break;
+		    			case "Duration":
+		    				  projectDTO.setDuration(parts.get(i).text().split(":")[1]);
+		    				  //System.out.println("Duration="+parts.get(i).text());
+		    				break;
+		    			case "ProjectName":
+		    				  projectDTO.setProjectName(parts.get(i).text().split(":")[1]);
+		    				  //System.out.println("ProjectName="+parts.get(i).text());
+		    				break;
+		    			case "Role":
+		    				  projectDTO.setRole(parts.get(i).text().split(":")[1]);
+		    				  //System.out.println("Role="+parts.get(i).text());
+		    				break;
+		    			case "ProjectBrief":
+		    				  int k=i+1;
+			    			  for(int j=k;j<parts.size();j++)
+			    			  {
+			    				  if(parts.get(j).tagName().equalsIgnoreCase("p"))
+			    				  {
+			    					  System.out.println("ProjectBrief="+parts.get(j).text());
+			    					  projectDTO.setProjectDesc(parts.get(j).text());
+			    					  break;
+			    				  }
+			    			  }
+			    			  break;
+		    			case "Responsibilities":
+		    				System.out.println("Responsibility="+parts.get(i+2).text());
+		    				projectDTO.setResponsibility(parts.get(i+2).text());
+		    				break;
+		    			case "Environment":
+		    				 System.out.println("Environment="+parts.get(i).text());
+		    				 projectDTO.setEnvironment(parts.get(i).text().split(":")[1]);
+		    				 projectDTO.setCreatedDate(CustomDate.getCustomDate());
+		    				 projectDTO.setUpdatedDate(CustomDate.getCustomDate());
+		    				 projectDTOList.add(projectDTO);
+		    				break;
+		    				
+		    			case "TechnicalSkills":
+		    				String html =parts.get(i+2).html();
+		    				org.jsoup.nodes.Document docTable = Jsoup.parse(html);
+		    				org.jsoup.select.Elements elementsByTag = docTable.select("table");
+					    	for (org.jsoup.nodes.Element e : elementsByTag)
+					    	{
+					    	
+					    	org.jsoup.select.Elements rows = e.getElementsByTag("tr");
+					    	for(org.jsoup.nodes.Element row : rows) {
+					            String Test = row.getElementsByTag("td").get(0).text();
+					            String Result = row.getElementsByTag("td").get(1).text();
+					            skillDTO= new SkillDTO();
+					            skillDTO.setSkillType(Test);
+			    				skillDTO.setCreatedDate(CustomDate.getCustomDate());
+			    				skillDTO.setUpdatedDate(CustomDate.getCustomDate());
+					            skillDTO.setSkillCatagory(SkillType.TECHNICAL.name());
+					            skillDTO.setSkill(Result);
+					            skillDTOList.add(skillDTO);
+					         //   System.out.print(Test+"\t");
+					         //   System.out.println(Result);
+					            
+					    	}
+					    	}
+		    				break;
+		    			}//END OF SWITCH
+	        		}//END OF CONTAINS KEY
+        		}//END OF FOR HEADER MAP
+        	}//END OF IF PARAGRAPH
+		}//END OF FOR EACH PARTS
+
+	
+	   if(employeeMasterDTO==null || skillDTOList.size()==0||projectDTOList.size()==0)
+	   {
+		   resumeDTO=null;
+	   }
+	   else
+	   {
+		resumeDTO.setEmployeeMaster(employeeMasterDTO);
+		resumeDTO.setSkills(skillDTOList);
+		resumeDTO.setProjects(projectDTOList);
+		resumeDTO.setEmployeeSumbissionStatus(EmployeeSubmissionStatus.SUBMITTED.name());
+	   }
+		return resumeDTO;
+	}
+
+
+
+/*
+ * testing
+ */
+
+/*public static void main(String[] args)
+{
+	Resume resumePOJO = new Resume();
+	ARMGServiceImpl impl = new ARMGServiceImpl();
+	//uploadToServerFolder(uploadDTO);
+	impl.convertDocxToHTML();
+	ResumeDTO resumeDTO = impl.readHTMLAndParseData();
+	Resume resume=CopyUtil.copyDTOtoPOJO(resumeDTO,resumePOJO);
+	
+	
+	
+	
+}*/
+
+
+/*
+ * end of testing
+ */
+
+
+
+
+
+}

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/QEPMS/!svn/ver/35/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/business/service
+END
+LoginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/QEPMS/!svn/ver/28/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/business/service/LoginService.java
+END
+EmployeeViewService.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/QEPMS/!svn/ver/59/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/business/service/EmployeeViewService.java
+END
+ManagerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/QEPMS/!svn/ver/59/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/business/service/ManagerService.java
+END

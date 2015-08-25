@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/config/DEV
+END
+application.properties
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/config/DEV/application.properties
+END
+hibernate.cfg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/config/DEV/hibernate.cfg.xml
+END

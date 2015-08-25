@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="location">
+			<value>classpath:application.properties
+			</value>
+		</property>
+	</bean>
+
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+	</bean>
+
+	<bean class="com.qepms.web.util.RESTUtil" id="restUtil">
+		<property name="efmsAppBaseUrl" value="${efmsApp.baseURL}" />
+		<property name="efmsWSBaseUrl" value="${efmsWS.baseURL}" />
+		<property name="restTemplate" ref="restTemplate" />
+	</bean>
+
+	<bean id="dataSource" class="${jdbc.datasource.class}"
+		destroy-method="close" p:driverClass="${jdbc.datasource.driverClass}"
+		p:jdbcUrl="${jdbc.datasource.jdbcUrl}" p:user="${jdbc.datasource.user}"
+		p:password="${jdbc.datasource.password}" p:acquireIncrement="5"
+		p:idleConnectionTestPeriod="60" p:maxPoolSize="100" p:maxStatements="50"
+		p:minPoolSize="10" />
+
+	<bean id="exceptionResolver" class="com.qepms.web.exception.LoggingExceptionResolver">
+		<property name="defaultErrorView">
+			<value>/error</value>
+		</property>
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.RuntimeException">/error</prop>
+				<prop key="java.lang.Exception">/error</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>
+

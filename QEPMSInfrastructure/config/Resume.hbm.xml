@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 17, 2014 1:40:26 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="Resume" table="resume" >
+        <id name="resumeid" type="java.lang.Integer">
+            <column name="Resumeid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employeeMaster" class="EmployeeMaster" fetch="select">
+            <column name="EmployeeId" />
+        </many-to-one>
+        <property name="totalExperience" type="big_decimal">
+            <column name="TotalExperience" precision="20" scale="0">
+                <comment>year&lt;50</comment>
+            </column>
+        </property>
+        <property name="relevantExperience" type="big_decimal">
+            <column name="RelevantExperience" precision="20" scale="0">
+                <comment>year&lt;50</comment>
+            </column>
+        </property>
+        <property name="professionalSummary" type="string">
+            <column name="ProfessionalSummary" />
+        </property>
+        <property name="employeeSumbissionStatus" type="string">
+            <column name="EmployeeSumbissionStatus" length="10" />
+        </property>
+        <property name="managerApprovalStatus" type="string">
+            <column name="ManagerApprovalStatus" length="8" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="19" not-null="true" />
+        </property>
+        <property name="updatedDate" type="timestamp">
+            <column name="UpdatedDate" length="19" not-null="true" />
+        </property>
+        <set name="projects" table="project" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ResumeId" />
+            </key>
+            <one-to-many class="Project" />
+        </set>
+        <set name="educations" table="education" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ResumeId" />
+            </key>
+            <one-to-many class="Education" />
+        </set>
+    </class>
+</hibernate-mapping>

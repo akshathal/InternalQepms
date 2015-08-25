@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/QEPMS/!svn/ver/36/trunk/QEPMS/qepms/QEPMSData/src/main/resources/hbm/employee
+END
+Education.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/QEPMS/!svn/ver/30/trunk/QEPMS/qepms/QEPMSData/src/main/resources/hbm/employee/Education.hbm.xml
+END
+EmployeeMaster.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/QEPMS/!svn/ver/30/trunk/QEPMS/qepms/QEPMSData/src/main/resources/hbm/employee/EmployeeMaster.hbm.xml
+END
+Skill.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/QEPMS/!svn/ver/30/trunk/QEPMS/qepms/QEPMSData/src/main/resources/hbm/employee/Skill.hbm.xml
+END
+Resume.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/QEPMS/!svn/ver/60/trunk/QEPMS/qepms/QEPMSData/src/main/resources/hbm/employee/Resume.hbm.xml
+END
+Named-Quiries.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/QEPMS/!svn/ver/60/trunk/QEPMS/qepms/QEPMSData/src/main/resources/hbm/employee/Named-Quiries.hbm.xml
+END
+Project.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/QEPMS/!svn/ver/60/trunk/QEPMS/qepms/QEPMSData/src/main/resources/hbm/employee/Project.hbm.xml
+END

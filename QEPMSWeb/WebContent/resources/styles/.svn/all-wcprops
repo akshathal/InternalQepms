@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/QEPMS/!svn/ver/26/trunk/QEPMS/qepms/QEPMSWeb/WebContent/resources/styles
+END
+common.css
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/QEPMS/!svn/ver/26/trunk/QEPMS/qepms/QEPMSWeb/WebContent/resources/styles/common.css
+END
+login.css
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/QEPMS/!svn/ver/26/trunk/QEPMS/qepms/QEPMSWeb/WebContent/resources/styles/login.css
+END
+printinvoice.css
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/QEPMS/!svn/ver/26/trunk/QEPMS/qepms/QEPMSWeb/WebContent/resources/styles/printinvoice.css
+END
+print.css
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/QEPMS/!svn/ver/26/trunk/QEPMS/qepms/QEPMSWeb/WebContent/resources/styles/print.css
+END
+demo_table_jui.css
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/QEPMS/!svn/ver/26/trunk/QEPMS/qepms/QEPMSWeb/WebContent/resources/styles/demo_table_jui.css
+END
+jquery.dataTables.css
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/QEPMS/!svn/ver/26/trunk/QEPMS/qepms/QEPMSWeb/WebContent/resources/styles/jquery.dataTables.css
+END
+styles.css
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/QEPMS/!svn/ver/26/trunk/QEPMS/qepms/QEPMSWeb/WebContent/resources/styles/styles.css
+END
+jquery.dataTables_themeroller.css
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/QEPMS/!svn/ver/26/trunk/QEPMS/qepms/QEPMSWeb/WebContent/resources/styles/jquery.dataTables_themeroller.css
+END

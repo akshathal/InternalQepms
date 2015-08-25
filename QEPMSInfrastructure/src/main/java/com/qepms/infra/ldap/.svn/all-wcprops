@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/ldap
+END
+Authentication.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/ldap/Authentication.java
+END
+config.properties
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/ldap/config.properties
+END
+ConfigValues.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/ldap/ConfigValues.java
+END

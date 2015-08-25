@@ -1,0 +1,116 @@
+html, body {
+	height: 100%;
+}
+html, body, input, select, textarea {
+	font-family: tahoma, verdana, arial;
+	font-size: 13px;
+	color: #000;
+}
+html, body, ul, li, p, h1, h2, h3, h4 {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style:none;
+}
+.clear {
+	float: none;
+	clear: both;
+	height: 0px;
+}
+#container {
+	border:2px solid #000;
+	margin:0 auto;
+	width:800px;
+	padding:20px;
+
+	position:relative;
+}
+#header {
+	margin:0 auto 0 auto;
+	text-align:center;
+	padding:15px 0 15px 0;
+}
+#header h1 {
+	background:#eee;
+	padding:20px 0 20px 0;
+	position:relative;
+}
+#header h1 .efllogo {
+	background:#fff;
+	position:absolute;
+	width:200px;
+	height:100px;
+	top:0px;
+	text-align:center;
+}
+#header h1 span {
+	text-align:center;
+	padding:0 0 0 25px;
+}
+#header h1 .distributorlogo {
+	background:#fff;
+	position:absolute;
+	width:150px;
+	height:100px;
+	top:0px;
+	right:0px;
+	text-align:center;
+}
+#header #distributordetails {
+	text-align:center;
+	margin:30px 0 0 0;
+	line-height:20px;
+}
+#header #distributordetails h2 {
+	font-size:19px;
+}
+#content {
+	margin:20px 0 20px 0;
+	
+}
+#content #invoicenumdate {
+	float:right;
+	width:30%;
+}
+#content #customerdetails {
+	float:left;
+	width:80%;
+	margin:20px 0 40px 0;
+	position:relative;
+}
+#content #customervattinno {
+	position:absolute;
+	top:0px;
+	right:0px;
+}
+#content #datagrid {
+	margin:20px 0 0 0;
+}
+#content #datagrid table {
+	border-collapse: collapse;
+	border:1px solid #CCC;
+	margin:0;
+	width:100%;
+	float:left;
+}
+#content #datagrid table thead tr th, #content #datagrid table tbody tr td {
+	border-right:1px solid #acacac;
+	border-bottom:1px solid #acacac;
+	vertical-align:top;
+	padding:2px;
+}
+#content #datagrid table tfoot tr td{border:1px solid #fff;}
+.serialnos {
+	margin:20px 0 0 0;}
+#footer {
+	margin:10px 0 0 0;
+	 float:left;
+}
+
+#footer #leftcontent{width:60%; position:relative; float:left;}
+
+#footer #leftcontent p.note{font-size:11px; text-align:justify; margin:10px 0 20px 0;}
+
+#footer #rightcontent{float:right; margin:50px 0 0 0;}
+#footer #rightcontent p:first-child{margin:0 0 90px 0;}

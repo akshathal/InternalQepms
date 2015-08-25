@@ -1,0 +1,148 @@
+package com.qepms.web.controller;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import javax.validation.Validator;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.qepms.common.util.CustomDate;
+import com.qepms.infra.constants.CommonConstants;
+import com.qepms.infra.dto.armg.EmployeeMasterDTO;
+import com.qepms.infra.dto.armg.ResumeDTO;
+import com.qepms.infra.dto.armg.UploadDTO;
+import com.qepms.infra.exception.QEPMSApplicationException;
+import com.qepms.infra.misc.wrapper.ResponseMessageWrapper;
+import com.qepms.web.constants.QEPMSWebConstants;
+import com.qepms.web.util.RESTUtil;
+
+
+@Controller
+public class ArmgController {
+	@Autowired
+	RESTUtil restUtil;
+
+	private Validator validator;
+
+	public Validator getValidator() {
+		return validator;
+	}
+
+	@Autowired
+	public void setValidator(Validator validator) {
+		this.validator = validator;
+	}
+
+	
+	private static final Logger LOG = LoggerFactory
+			.getLogger(ArmgController.class);
+	
+	@RequestMapping(value = "/armg/armgresume", method = RequestMethod.GET)
+	public String showArmgarmgresumePage() {
+		LOG.debug("showArmgarmgresumePage() called");
+		
+		return QEPMSWebConstants.Armg.ARMGRESUME_PAGE_PATH;
+	}
+		
+	
+	@RequestMapping(value = "/armg/landing", method = RequestMethod.GET)
+	public String showArmglandingPage() {
+		LOG.debug("showArmglandingPage() called");
+		return QEPMSWebConstants.Armg.LANDING_PAGE_PATH;
+	}
+	
+	@RequestMapping(value = "/armg/armgviewofresume", method = RequestMethod.GET)
+	public String showArmgarmgviewofresumePage() {
+		LOG.debug("showArmgarmgviewofresumePage() called");
+		return QEPMSWebConstants.Armg.ARMGVIEWOFRESUME_PAGE_PATH;
+
+}
+	
+	@RequestMapping(value = "/armg/importresume", method = RequestMethod.GET)
+	public String showArmgimportresumePage() {
+		LOG.debug("showArmgimportresumePage() called");
+		return QEPMSWebConstants.Armg.IMPORTRESUME_PAGE_PATH;
+
+}
+	
+	
+	@RequestMapping(value = "/armg/uploadresumetemplate", method = RequestMethod.GET)
+	public String showArmguploadresumetemplatePage() {
+		LOG.debug("showArmguploadresumetemplatePage() called");
+		return QEPMSWebConstants.Armg.UPLOADRESUMETEMPLATE_PAGE_PATH;
+}
+	
+	@RequestMapping(value = "/armg/uploadfile",method = RequestMethod.POST)
+	public @ResponseBody
+	ModelAndView submitResume(
+			@RequestParam("file") MultipartFile file,
+			@RequestParam("empId") int empId,
+			@RequestParam("employeeMail") String employeeMail,
+			@RequestParam("reportingManager") String reportingManager
+			)
+		{
+		UploadDTO uploadDTO = new UploadDTO();
+		ResponseMessageWrapper responseMessageWrapper = new ResponseMessageWrapper();
+		EmployeeMasterDTO employeeMasterDTO=new EmployeeMasterDTO();
+		employeeMasterDTO.setEmpId(empId);
+		employeeMasterDTO.setEmployeeMail(employeeMail);
+		employeeMasterDTO.setReportingManager(reportingManager);
+		employeeMasterDTO.setCreatedDate(CustomDate.getCustomDate());
+	    employeeMasterDTO.setUpdatedDate(CustomDate.getCustomDate());
+	    uploadDTO.setEmployeeMasterDTO(employeeMasterDTO);
+		LOG.debug("submitResume() called ");
+		try {
+			if (!file.isEmpty()) {
+	            
+	            		byte[] bytes = file.getBytes();
+	            		System.out.println("fileNmae="+file.getOriginalFilename());
+	                	String rootPath = CommonConstants.UPLOAD_DIRECTORY;
+	                	File dir = new File(rootPath);
+	                	if (!dir.exists())
+	                		dir.mkdirs();
+	                	File serverFile = new File(dir.getAbsolutePath()
+	                        + File.separator + file.getOriginalFilename());
+	                BufferedOutputStream stream = new BufferedOutputStream(
+	                        new FileOutputStream(serverFile));
+	                stream.write(bytes);
+	                stream.close();
+	 
+	                LOG.info("Server File Location="
+	                        + serverFile.getAbsolutePath());
+	 
+	                uploadDTO.setFilePath(serverFile.getAbsolutePath());
+	            	responseMessageWrapper = restUtil.postData(uploadDTO,
+					QEPMSWebConstants.Armg.UPLOADRESUME_MSTR_WS_PATH);
+			}
+			else
+			{
+				responseMessageWrapper.setResponseMessage("Upload Failed!!File is empty");	
+			}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+				return new ModelAndView(
+				QEPMSWebConstants.Armg.UPLOADRESUMETEMPLATE_PAGE_PATH,
+				"responseMessageWrapper", responseMessageWrapper);
+	}
+	
+	
+}

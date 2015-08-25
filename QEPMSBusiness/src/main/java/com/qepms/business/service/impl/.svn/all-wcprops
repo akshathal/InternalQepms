@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/QEPMS/!svn/ver/35/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/business/service/impl
+END
+LoginServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/QEPMS/!svn/ver/28/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/business/service/impl/LoginServiceImpl.java
+END
+Skill.txt
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/QEPMS/!svn/ver/28/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/business/service/impl/Skill.txt
+END
+EmployeeViewServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/QEPMS/!svn/ver/59/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/business/service/impl/EmployeeViewServiceImpl.java
+END
+ManagerServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/QEPMS/!svn/ver/59/trunk/QEPMS/qepms/QEPMSBusiness/src/main/java/com/qepms/business/service/impl/ManagerServiceImpl.java
+END

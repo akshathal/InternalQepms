@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 13, 2014 3:13:20 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.qepms.data.employee.Project" table="project" catalog="qepms">
+        <id name="projectId" type="java.lang.Integer">
+            <column name="ProjectId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="resume" class="com.qepms.data.employee.Resume" fetch="select">
+            <column name="ResumeId" />
+        </many-to-one>
+        <property name="projectName" type="string">
+            <column name="ProjectName" length="50" />
+        </property>
+         <property name="clientName" type="string">
+            <column name="ClientName" length="50" />
+        </property>
+         <property name="duration" type="string">
+            <column name="Duration" length="20" />
+        </property>
+        <property name="projectDesc" type="string">
+            <column name="ProjectDesc" />
+        </property>
+        <property name="role" type="string">
+            <column name="Role" />
+        </property>
+        <property name="responsibility" type="string">
+            <column name="Responsibility" />
+        </property>
+        <property name="environment" type="string">
+            <column name="Environment" />
+        </property>
+        <property name="startDate" type="string">
+            <column name="StartDate"  />
+        </property>
+        <property name="endDate" type="string">
+            <column name="EndDate" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="19" not-null="true" />
+        </property>
+        <property name="updatedDate" type="timestamp">
+            <column name="UpdatedDate" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

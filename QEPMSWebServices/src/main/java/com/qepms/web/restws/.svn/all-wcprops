@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/QEPMS/!svn/ver/39/trunk/QEPMS/qepms/QEPMSWebServices/src/main/java/com/qepms/web/restws
+END
+LoginRestWS.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/QEPMS/!svn/ver/34/trunk/QEPMS/qepms/QEPMSWebServices/src/main/java/com/qepms/web/restws/LoginRestWS.java
+END
+BaseRESTWS.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/QEPMS/!svn/ver/34/trunk/QEPMS/qepms/QEPMSWebServices/src/main/java/com/qepms/web/restws/BaseRESTWS.java
+END
+ManagerRESTWS.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/QEPMS/!svn/ver/63/trunk/QEPMS/qepms/QEPMSWebServices/src/main/java/com/qepms/web/restws/ManagerRESTWS.java
+END
+EmployeeMasterRESTWS.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/QEPMS/!svn/ver/63/trunk/QEPMS/qepms/QEPMSWebServices/src/main/java/com/qepms/web/restws/EmployeeMasterRESTWS.java
+END
+ARMGRestWS.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/QEPMS/!svn/ver/63/trunk/QEPMS/qepms/QEPMSWebServices/src/main/java/com/qepms/web/restws/ARMGRestWS.java
+END

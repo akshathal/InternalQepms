@@ -1,0 +1,804 @@
+html, body {
+	height: 100%;
+}
+html, body, input, select, textarea {
+	font-family: tahoma, verdana, arial;
+	font-size: 11px;
+	color: #000;
+}
+html, body, ul, li, p, h1, h2, h3, h4 {
+	margin: 0;
+	padding: 0;
+}
+li {
+	list-style: none;
+}
+a {
+	color: #0e83ca;
+	text-decoration: none;
+}
+a:hover {
+	color: #000;
+}
+img {
+	border: 0;
+}
+
+input[type="text"], input[type="password"], textarea, select {
+	border: 1px solid #9c9c9c;
+	padding: 2px;
+}
+input:focus[type="text"] {
+	border:1px solid #00F;
+}
+input[type="button"], input[type="submit"], input[type="reset"] {
+	width: auto;
+	overflow: visible;
+	background: #686868;
+	border: 1px solid #373737;
+	border-top: 1px solid #121212;
+	color: #fff;
+	padding: 5px 10px;
+	cursor: pointer;
+	cursor: hand;
+	font-weight: bold;
+	letter-spacing: 1px;
+	margin: 0 0 0 7px;
+}
+input[value=".."] {
+	padding: 4px 2px 2px 3px;
+	font-size: 8px;
+	letter-spacing: 1px;
+	margin: -1px 0 0 -1px
+}
+input[type="radio"], input[type="checkbox"] {
+	padding: 0;
+	margin: 0;
+}
+
+.fcenter {
+	float: center;
+}
+.fleft {
+	float: left;
+}
+.fright {
+	float: right;
+}
+.clear {
+	float: none;
+	clear: both;
+	height: 0px;
+}
+.width100 {
+	width: 100%;
+}
+h1 {
+	font-size: 14px;
+	color: #016299;
+	font-weight: bold;
+	border-bottom: 2px dotted #1c75af;
+	padding: 5px 0 10px 0;
+}
+h1>div.fright {
+	font-size: 11px;
+	color:#000;
+	font-weight:normal;
+	margin:-2px 0 0 0;
+}
+h1>div.fright a {
+	padding-right: 15px;
+}
+h2 {
+	background: #5a96bb;
+	float: left;
+	width: 99%;
+	font-size: 13px;
+	color: #fff;
+	font-weight: bold;
+	padding:5px;
+	position:relative;
+}
+h2 div.fright {
+	position:absolute;
+	right:0px;
+	top:1px;
+}
+h3 {
+	background: #a6a6a6;
+	color: #fff;
+	font-size: 12px;
+	float: left;
+	width: 99%;
+	padding: 5px;
+	font-weight: bold;
+	margin-top: 1px;
+}
+.subsection {
+	/*padding:10px 0 10px 0;
+	border-top: 3px solid #DDD;*/
+	width: 100%;
+	float: left;
+	/*clear: both;*/
+	position: relative;
+	margin:0 0 10px 0;
+	
+}
+.subsection.search {
+	margin:0px;
+	background: #b2d3fe;
+}
+.subsection.seperator {
+	border-top: 2px solid #ddd;
+}
+.subsubsection {
+	clear:both;
+	float:left;
+	width: 100%;
+}
+/* Table styles
+----------------------------------*/
+.datagrid {
+	overflow: auto;
+	float:left;
+	
+	width: 99.9%;
+	width: 99.8%\9;
+}
+
+/*
+custom properties
+*/
+
+.datagridfordatatable {
+	overflow: auto;
+	float:left;
+	
+	width: 99.9%;
+	width: 99.8%\9;
+    background: #b2d3fe;
+	
+}
+.datagridfordatatable table {
+	border-collapse: collapse;
+	width: 100%;
+	float: left;
+	margin: 0 0 0 0;
+	float: left;
+}
+
+.datagridfordatatable table thead th, .datagrid table tbody td, .datagrid table tfoot td {
+	padding: 5px;
+}
+
+.datagridfordatatable table tfoot td {
+	font-size:12px;
+	font-weight:bold;
+	padding:5px 5px 7px 5px;
+	position:relative;
+}
+.datagridfordatatable table tfoot td a {
+	color: #006198;
+}
+.datagridfordatatable table thead th {
+	border:1px solid #fff;
+	border-right:0;
+	font-weight: bold;
+	padding:4px 5px 7px 5px;
+	text-align: left;
+}
+
+.datagridfordatatable table thead th:first-child {
+	border-left:0;
+}
+.datagridfordatatable table thead tr, .datagrid table tfoot tr {
+	background-color: #e8e8e8;
+}
+.datagridfordatatable table thead tr.errorsec th{background-color: #fff; font-weight:normal; padding:0 2px 0 2px;}
+.datagridfordatatable table thead.mainhd th {
+	background: #a2a2a2;
+	padding: 4px 5px 4px 5px;
+	color: #fff;
+	font-size: 13px;
+}
+
+.datagridfordatatable table tbody tr.hover {
+	background: #c5e2ff;
+}
+/*.tablebrdr{width:90%!important;}*/
+.tablebrdr table tbody tr td {
+	border-bottom: 1px solid #e8e8e8;
+}
+.datagridfordatatable table tbody tr td input[type="text"], .datagrid table tbody tr td select {
+	width:97%;
+	
+}
+.tablebrdr table tbody tr td input[type="text"]{width:auto!important;}
+.tablebrdr table tbody tr td input.date{width:70px!important;}
+.datagridfordatatable table tbody td {
+	position:relative;
+	vertical-align:top;
+	padding:7px 5px 7px 5px;
+}
+.datagridfordatatable table tbody td.action {
+	color: #999;
+}
+.datagridfordatatable table tbody td.action a {
+	font-weight: bold;
+}
+
+
+.datagridfordatatable table tbody tr td.noresize input[type="text"], .datagrid table tbody tr td.noresize select {
+	width:auto;
+}
+
+.datagridfordatatable table tbody tr td div{position:relative;}
+.datagridfordatatable table tbody tr td div input[value=".."]{margin-right:20px;}
+.datagridfordatatable table tbody tr td span {
+	
+	margin:0 20px 0 0;
+	float:left;
+}
+.datagridfordatatable table tbody tr td a.viewdetail {
+	height:100%;
+	position:absolute;
+	right:0px;
+	
+}
+.datagridfordatatable table tbody tr td[align="right"] span{float:right;}
+.datagridfordatatable table tbody tr td a.viewdetail img {
+	vertical-align:middle;
+	
+}
+
+
+/*
+end custom properties
+*/
+.datagrid table {
+	border-collapse: collapse;
+	width: 100%;
+	float: left;
+	margin: 0 0 0 0;
+	float: left;
+}
+.datagrid table thead th, .datagrid table tbody td, .datagrid table tfoot td {
+	padding: 5px;
+}
+
+.datagrid table tfoot td {
+	font-size:12px;
+	font-weight:bold;
+	padding:5px 5px 7px 5px;
+	position:relative;
+}
+.datagrid table tfoot td a {
+	color: #006198;
+}
+.datagrid table thead th {
+	border:1px solid #fff;
+	border-right:0;
+	font-weight: bold;
+	padding:4px 5px 7px 5px;
+	text-align: left;
+}
+
+.datagrid table thead th:first-child {
+	border-left:0;
+}
+.datagrid table thead tr, .datagrid table tfoot tr {
+	background-color: #e8e8e8;
+}
+.datagrid table thead tr.errorsec th{background-color: #fff; font-weight:normal; padding:0 2px 0 2px;}
+.datagrid table thead.mainhd th {
+	background: #a2a2a2;
+	padding: 4px 5px 4px 5px;
+	color: #fff;
+	font-size: 13px;
+}
+/*.datagrid table tfoot tr:last-child {
+	background-color: #e8e8e8;
+}*/
+.datagrid table tbody td.action {
+	text-align: center;
+}
+
+.alt_odd {
+	background: #fff;
+}
+.alt_even {
+	background: #eff6ff;
+}
+/*.alt_2 td {
+	background: #c3dfff;
+}
+.alt_3 td {
+	background: #dddddd;
+	border-right: 1px solid #fff;
+	padding: 5px !important;
+}
+.alt_0 td {
+	border: 1px solid #fff;
+}
+.alt_1 td {
+	border: 1px solid #eff6ff;
+}*/
+/*
+*/
+.datagrid table tbody tr.hover {
+	background: #c5e2ff;
+}
+/*.tablebrdr{width:90%!important;}*/
+.tablebrdr table tbody tr td {
+	border-bottom: 1px solid #e8e8e8;
+}
+.datagrid table tbody tr td input[type="text"], .datagrid table tbody tr td select {
+	width:97%;
+	
+}
+.tablebrdr table tbody tr td input[type="text"]{width:auto!important;}
+.tablebrdr table tbody tr td input.date{width:70px!important;}
+.datagrid table tbody td {
+	position:relative;
+	vertical-align:top;
+	padding:7px 5px 7px 5px;
+}
+.datagrid table tbody td.action {
+	color: #999;
+}
+.datagrid table tbody td.action a {
+	font-weight: bold;
+}
+
+
+.datagrid table tbody tr td.noresize input[type="text"], .datagrid table tbody tr td.noresize select {
+	width:auto;
+}
+
+/*
+till here
+*/
+.dataleft {
+	text-align: left!important;
+}
+.datacenter {
+	text-align: center!important;
+}
+.dataright {
+	text-align: right!important;
+}
+.datagrid table tbody tr td div{position:relative;}
+.datagrid table tbody tr td div input[value=".."]{margin-right:20px;}
+.datagrid table tbody tr td span {
+	
+	margin:0 20px 0 0;
+	float:left;
+}
+.datagrid table tbody tr td a.viewdetail {
+	height:100%;
+	position:absolute;
+	right:0px;
+	
+}
+.datagrid table tbody tr td[align="right"] span{float:right;}
+.datagrid table tbody tr td a.viewdetail img {
+	vertical-align:middle;
+	
+}
+
+/* apply styles for paging tables
+----------------------------------*/
+#tablePagination {
+	border-top: 1px solid #ccc;
+	float:left;
+	width: 100%;
+}
+#tablePagination ul.status {
+	margin: 0;
+	padding: 0;
+}
+#tablePagination ul.status li {
+	float: left;
+	padding: 5px 60px 0 0;
+	color: #000;
+	font-size: 11px;
+}
+#tablePagination ul.status li span {
+	color: #000;
+	font-size: 11px;
+	font-weight: bold;
+}
+#tablePagination_paginater {
+	float: right;
+}
+#tablePagination img {
+	cursor: pointer;
+	padding: 5px;
+	float: left;
+}
+/*** START :: Common Form Styles ***/
+#forms ul, #formsOne ul, #formsTwo ul {
+	width: 100%;
+	float:left;
+}
+#forms ul li, #formsOne ul li, #formsTwo ul li {
+	color: #000;
+	font-size: 11px;
+	border-top: 1px solid #eee;
+	margin: 0;
+	float: left;
+	width: 100%;
+	padding: 10px 5px 10px 0;
+	
+}
+#forms ul li:first-child, #formsOne ul li:first-child, #formsTwo ul li:first-child {
+	border-top: 0px;
+}
+#forms ul li div.label span, #formsOne ul li div.label span, #formsTwo ul li div.label span {
+	font-weight:normal;
+	display:block;
+}
+/*** END :: Common Form Styles ***/
+
+
+
+/*** START :: Three column Form ***/
+
+
+
+
+#forms ul li div.fleft_full {
+	float: left;
+	padding-left: 5px;
+}
+#forms ul li div.fleft img[src="../../resources/images/arrowBlue.png"] {
+	float: none;
+	margin: -2px 0 0 0;
+	margin: -10px 0 0 0\9;
+	cursor: pointer;
+}
+#forms ul li div.fleft ul.payment {
+	padding: 0px;
+	margin: 0px;
+	width: 195px;
+}
+#forms ul li div.fleft ul.payment li {
+	float: left;
+	border: 0px;
+	padding: 0px;
+	margin: 2px 0 2px 0;
+	width: 92px;
+}
+#forms ul li div.fleft ul.payment li input {
+	margin: 0px;
+	float: left;
+}
+#forms ul li div.fleft ul.payment li span {
+	float: left;
+	width: 69px;
+	margin: 0 0 0 4px;
+}
+#forms ul li div.fleft {
+	float: left;
+	width: 20%;
+	padding: 0 5px 0 5px;
+}
+#forms ul li div.label {
+	float: left;
+	width: 10%;
+	font-weight: bold;
+	padding-right: 5px;
+}
+#forms ul li div.fleft input[type="text"], #forms ul li div.fleft input[type="password"], #forms ul li div.fleft textarea, #forms ul li div.fleft select, #forms div.validateno {
+	width: 70%;
+}
+
+#forms ul li div.fleft textarea {
+	width: 125px;
+	height: 50px;
+}
+/*** END :: Three column Form ***/
+
+
+
+/*** START :: One column Form ***/
+
+
+/*#formsOne ul li.last {
+	border-bottom: 0px solid #e7e7e7;
+}*/
+#formsOne ul li div.fleft textarea {
+	width: 450px;
+	height: 50px;
+}
+#formsOne ul li div.fleft {
+	float: left;
+	width: 70%;
+	color: #000;
+	font-weight: normal;
+	
+}
+#formsOne ul li div.label {
+	float: left;
+	width: 170px;
+	color: #000;
+	font-weight: bold;
+}
+
+
+
+/*#formsOne ul li div.greytxt {
+	color: #000;
+}*/
+/*** END :: One column Form ***/
+
+
+/*** START :: Two column Form ***/
+/*#formsTwo ul li.last {
+	border-bottom: 0px solid #e7e7e7;
+}
+*/#formsTwo ul li div.fleft textarea {
+	width: 125px;
+	height: 50px;
+}
+#formsTwo ul li div.fleft {
+	float: left;
+	color: #000;
+	width: 30%;
+	padding-left: 5px;
+	position:relative;
+}
+#formsTwo ul li div.label {
+	float: left;
+	width: 15%;
+	color: #000;
+	font-weight: bold;
+	padding-right: 5px;
+}
+#formsTwo ul li div.fleft input[type="text"], #formsTwo ul li div.fleft input[type="password"], #formsTwo ul li div.fleft textarea, #formsTwo ul li div.fleft select, #formsTwo div.validateno {
+	width: 60%;
+}
+#formsTwo ul li div.landline input[type="text"] {
+	width: 45%;
+}
+/*** END :: Two column Form ***/
+
+/*** START :: Single Small Form ***/
+#formsOne.smallform {
+	width: 500px;
+}
+#formsOne.smallform ul li div.fleft {
+}
+#formsOne.smallform ul li div.label {
+	width: 140px;
+}
+
+#formsOne.smallform ul li div.fleft input[type="text"], #formsOne.smallform ul li div.fleft input[type="password"], #formsOne.smallform ul li div.fleft textarea, #formsOne.smallform ul li div.fleft select {
+	width: 60%;
+}
+/*** END :: Single Small Form ***/
+
+
+ul.srclong, ul.srcsmall {
+	float: left;
+	width: 85%;
+}
+ul.srclong {
+	padding: 10px 0 0 0;
+	margin:-7px 0 0 0;
+}
+ul.srcsmall {
+	padding: 10px 0 0 10px;
+}
+ul.srclong li, ul.srcsmall li {
+	float: left;
+}
+ul.srclong li {
+	margin:0 15px 0 15px;
+	min-height: 60px;
+}
+ul.srclong li input[type="button"],ul.srclong li input[type="button"]input[type="submit"], ul.srcsmall li input[type="button"],ul.srcsmall li input[type="button"]input[type="submit"] {
+	margin:15px 0 0 0;
+}
+ul.srclong li input[type="text"],ul.srclong li  input[value=".."],ul.srcsmall li input[type="text"],ul.srclong li  input[value=".."] {
+	margin:auto!important;
+}
+
+ul.srcsmall li {
+	margin:0 10px 0 10px;
+	min-height: 40px;
+}
+ul.srclong li h4 {
+	padding: 2px;
+	padding: 6px 0 9px 0;
+	font-size: 11px;
+	width: 100%;
+}
+ul.srclong li input {
+	margin:0;
+}
+ul.srclong li select {
+	width: 80px;
+	margin: 0 0 0 0;
+}
+/*ul.srclong li input.txtdate, ul.srcsmall li input.txtdate {
+	width: 70px!important;
+	float: left;
+}
+ul.srclong li input.amount, ul.srcsmall li input.txtdate {
+	width: 70px!important;
+	float: left;
+}*/
+ul.srclong li div.frm_input a {
+	padding: 2px 0 1px 0;
+	display: block;
+	width: 16px;
+	float: left;
+}
+ul.srclong li input.popupbtn {
+	border: 1px solid #000;
+	padding: 2px 3px 3px 3px;
+	margin: 0 0 0 0;
+	background: #666666;
+	color: #fff;
+	font-weight: bold;
+	width: 17px;
+	text-align: center;
+	font-size: 10px;
+	cursor: pointer;
+	cursor: hand;
+}
+ul.srclong li h4.small {
+	padding: 0px;
+}
+/*ul.srclong li.btnsec {
+	width: auto;
+	cursor: pointer;
+	cursor: hand;
+}*/
+/*ul.srclong li.btnsec input {
+	width: 65px;
+	margin: 10px 0 0 10px;
+	padding: 5px
+}*/
+/*ul.srcsmall li.btnsec input {
+	padding: 5px 10px;
+}*/
+ul.srclong li.long {
+	min-width: 100px;
+	padding: 0px;
+}
+ul.srclong li.long h4 {
+	margin: 5px 0 4px 0;
+	padding: 0px;
+}
+ul.srclong li.long div.frm_input {
+	margin: 5px 15px 0 0;
+	float: left;
+}
+ul.srclong li.long div.frm_input h5 {
+	float: left;
+	padding: 2px 0 2px 0;
+	margin: 0 5px 0 0;
+	font-size: 11px;
+}
+ul.srclong li input[type="text"],ul.srclong li select {
+	width:100px;
+}
+ul.srcsmall div.label, ul.srcsmall div.fleft {
+	float:left;
+}
+ul.srcsmall div.label {
+	font-weight:bold;
+	margin:5px 5px 0 0;
+}
+ul.srcsmall div.fleft {
+}
+
+
+input.date {
+	width:70px!important;
+	text-align:center;
+	padding:auto 0 auto 0;
+	
+}
+input.amount {
+	text-align:right;
+}
+ul.srclong input.amount {
+	text-align:left;
+	width:70px!important;
+}
+input.normal {
+	width:auto!important;
+}
+input.normal+input[value=".."] {
+	margin:-2px 0 0 -3px;
+	margin:-3px 0 0 -1px\9;
+}
+input.normal+input[value=".."]+img{border:1px solid #000;}
+
+
+input.date+img {
+	cursor:pointer;
+	cursor:hand;
+	margin:-5px 0 0 0;
+	margin:0px\9;
+}
+.src1 {
+	width:100%!important;
+}
+.srcbtnsec {
+	position:absolute;
+	right:20px;
+	bottom:10px;
+}
+.bottombtn {
+	margin: 10px 0 0 0;
+	border-top: 2px solid #ddd;
+	padding: 10px 0 0 0;
+	text-align: right;
+	float: left;
+	width: 100%;
+}
+.bottombtn a {
+	padding-right: 15px;
+}
+/*** Start :: Popup Short Forms ***/
+#contenPanPopup #formsOne {}
+#contenPanPopup #formsOne ul li div.label {
+	width:150px;
+	margin:0 20px 0 0;
+	
+}
+#contenPanPopup #formsOne ul li div.fleft {
+width:50%;
+}
+
+/*** End :: Popup Short Forms ***/
+.mandatory, .mandatory_1{color: #F00; font-weight:bold;}
+
+.mandatory {
+	/*margin: 0 5px 0 0;
+	float:left;*/
+	float:left;
+	margin:0 0 0 -8px;
+}
+input[readonly]{background:#eee;}
+
+.notify{float:left; position:relative; width:60%;}
+.notify span{position:absolute; bottom:-20px; right:-10px; white-space:nowrap; color:#666;}
+.notify textarea{width:100%!important;}
+/**** Start :: Undercontruction page ****/
+.underconstruction {min-height:200px; margin:4% 0 0 0; text-align:center;}
+.underconstruction h1{border:0px; color:#000; font-size:20px;}
+.underconstruction p{margin:20px 0 20px 0; font-size:16px;}
+/**** End :: Undercontruction page ****/
+
+div.validateno input[type="text"] {
+	width: 98.4%!important;
+}
+div.validateno a {
+	display: block;
+	float: right;
+	margin: 5px 0 0 0;
+	font-weight: bold;
+}
+div.validateno span {
+	display: none;
+	/*display:block;*/
+	margin: -10px 0 0 0;
+	padding: 3px 10px 3px 24px;
+	font-weight: bold;
+}
+div.validateno .validationError {
+	color: #ff0000;
+	background: url(../images/errorsmall.png) no-repeat 3px 2px;/*border:1px solid #ff3131;*/
+}
+div.validateno .validationSucess {
+	color: #31770f;
+	background: url(../images/checksmall.png) no-repeat 3px 3px;
+}
+.hide {
+	display: none;
+}

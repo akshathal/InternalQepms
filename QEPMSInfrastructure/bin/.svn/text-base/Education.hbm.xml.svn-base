@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 17, 2014 1:40:26 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+
+    <class name="Education" table="education" catalog="qepms">
+        <id name="educationId" type="java.lang.Integer">
+            <column name="EducationId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="resume" class="Resume" fetch="select">
+            <column name="ResumeId" />
+        </many-to-one>
+        <property name="degree" type="string">
+            <column name="Degree" length="50" />
+        </property>
+        <property name="aggregate" type="big_decimal">
+            <column name="Aggregate" precision="20" scale="0" />
+        </property>
+        <property name="description" type="string">
+            <column name="Description" length="50" />
+        </property>
+        <property name="college" type="string">
+            <column name="College" length="50" />
+        </property>
+        <property name="yearOfPassing" type="date">
+            <column name="YearOfPassing" length="10" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="19" not-null="true" />
+        </property>
+        <property name="updatedDate" type="timestamp">
+            <column name="UpdatedDate" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

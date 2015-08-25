@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/QEPMS/!svn/ver/37/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/dto/armg
+END
+SkillDTOList.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/dto/armg/SkillDTOList.java
+END
+EducationDTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/dto/armg/EducationDTO.java
+END
+EmployeeMasterDTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/dto/armg/EmployeeMasterDTO.java
+END
+ResumeDTOList.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/dto/armg/ResumeDTOList.java
+END
+SkillDTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/dto/armg/SkillDTO.java
+END
+ResumeDTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/QEPMS/!svn/ver/61/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/dto/armg/ResumeDTO.java
+END
+StringlistDTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/dto/armg/StringlistDTO.java
+END
+UploadDTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/QEPMS/!svn/ver/61/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/dto/armg/UploadDTO.java
+END
+ProjectDTO.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/QEPMS/!svn/ver/61/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/dto/armg/ProjectDTO.java
+END
+EducationDTOList.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/dto/armg/EducationDTOList.java
+END
+EmployeeMasterDTOList.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/src/main/java/com/qepms/infra/dto/armg/EmployeeMasterDTOList.java
+END

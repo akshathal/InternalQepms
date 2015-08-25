@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 13, 2014 3:13:20 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.qepms.data.employee.Skill" table="skill" catalog="qepms">
+        <id name="skillId" type="java.lang.Integer">
+            <column name="SkillId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="resume" class="com.qepms.data.employee.Resume" fetch="select">
+            <column name="ResumeId" />
+        </many-to-one>
+        <property name="skillType" type="string">
+            <column name="SkillType" length="50" />
+        </property>
+        <property name="skillCatagory" type="string">
+            <column name="SkillCatagory" length="50" />
+        </property>
+        <property name="skill" type="string">
+            <column name="Skill" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="19" not-null="true" />
+        </property>
+        <property name="updatedDate" type="timestamp">
+            <column name="UpdatedDate" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

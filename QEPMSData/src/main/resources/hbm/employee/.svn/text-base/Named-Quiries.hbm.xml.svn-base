@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Dec, 2012 8:47:03 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+<query name="getResumeList">
+<![CDATA[
+	
+	from com.qepms.data.employee.Resume resume order by resume.employeeMaster.empId
+]]>	
+</query>
+<query name="getListOfResumes">
+<![CDATA[
+	
+	from com.qepms.data.employee.Resume resume where resume.managerApprovalStatus=:managerApprovalStatus and resume.employeeSumbissionStatus=:employeeSubmissionStatus
+]]>	
+</query>
+
+<query name="getResumeOfEmployee">
+<![CDATA[
+	
+	from com.qepms.data.employee.Resume resume where resume.employeeMaster.empId=:empId
+]]>	
+</query>
+
+<query name="postCommentToRejectedResume">
+<![CDATA[
+	
+	update com.qepms.data.employee.Resume resume set resume.comments=:comments, resume.managerApprovalStatus=:managerStatus,resume.updatedDate=:date,resume.employeeSumbissionStatus=:employeeStatus where resume.resumeid=:resumeid
+]]>	
+</query>
+<query name="acceptResume">
+<![CDATA[
+	
+	update com.qepms.data.employee.Resume resume set resume.managerApprovalStatus=:managerStatus,resume.comments=:comments where resume.resumeid=:resumeid
+]]>	
+</query>
+
+<!-- employee module queries -->
+
+<query name="getResumeListByEmployeeStatus">
+<![CDATA[
+
+	
+	from com.qepms.data.employee.Resume resume where resume.employeeSumbissionStatus=:employeeSumbissionStatus and resume.employeeMaster.empId=:empId  order by resume.updatedDate desc
+]]>	
+</query>
+
+<!-- <query name="getResumeListByManagerStatus">
+<![CDATA[
+
+	from com.qepms.data.employee.Resume resume where resume.managerApprovalStatus=:managerApprovalStatus and resume.employeeMaster.empId=:empId 
+]]>	
+</query> -->
+
+<query name="getResumeListByStatus">
+<![CDATA[
+
+	from com.qepms.data.employee.Resume resume where resume.managerApprovalStatus=:managerApprovalStatus and employeeSumbissionStatus=:employeeSumbissionStatus and resume.employeeMaster.empId=:empId 
+]]>	
+</query>
+
+<query name="getViewResume">
+<![CDATA[
+
+	from com.qepms.data.employee.Resume resume where resume.employeeMaster.empId=:empId and resume.employeeSumbissionStatus =:employeeSubmissionStatus order by resume.updatedDate
+]]>	
+</query>
+
+<query name="getEditResume">
+<![CDATA[
+
+	from com.qepms.data.employee.Resume resume where resume.employeeMaster.empId=:empId 
+]]>	
+</query>
+
+<query name="findResumeById">
+<![CDATA[
+
+	from com.qepms.data.employee.Resume resume where resume.resumeid=:resumeid 
+]]>	
+</query>
+
+<query name="getEditedSubmit">
+<![CDATA[
+
+	update com.qepms.data.employee.Resume resume set resume.employeeMaster.title=:title,resume.totalExperience=:totalExperience,resume.relevantExperience=:relevantExperience,resume.professionalSummary=:professionalSummary  where resume.employeeMaster.empId=:empId 
+]]>	
+</query>
+
+<query name="SubmitResume">
+<![CDATA[
+update com.qepms.data.employee.Resume resume set resume.employeeMaster.title=:title,resume.totalExperience=:totalExperience,resume.relevantExperience=:relevantExperience,resume.professionalSummary=:professionalSummary where resume.employeeMaster.empId=:empId 
+ 
+
+]]>	
+</query>
+
+</hibernate-mapping>

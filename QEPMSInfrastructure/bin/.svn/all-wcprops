@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/config
+END
+Education.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/config/Education.hbm.xml
+END
+EmployeeMaster.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/config/EmployeeMaster.hbm.xml
+END
+Skill.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/config/Skill.hbm.xml
+END
+Resume.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/config/Resume.hbm.xml
+END
+Project.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/config/Project.hbm.xml
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/config/log4j.properties
+END
+hibernate.properties
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/config/hibernate.properties
+END
+application.properties
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/config/application.properties
+END
+hibernate.cfg.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/QEPMS/!svn/ver/32/trunk/QEPMS/qepms/QEPMSInfrastructure/config/hibernate.cfg.xml
+END
